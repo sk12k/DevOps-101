@@ -1,0 +1,366 @@
+###########################
+# DevOps Fundamentals
+###########################
+
+Date: 18-Aug-2019
+
+keywords:
+
+- Deployment without Downtime (Deployment Strategies)
+- Monolithic vs Micro-services
+- State of DevOps report
+- DevOps ROI and Measuring your progress
+- "It worked on my machine" syndrome
+- Pluggable Architecture
+ - Plugins
+- 2-Pizza teams => Jeff Bezos (Amazon CEO)
+- "You build it! You run it!"
+- "It worked on my machine" syndrome
+- State of DevOps reports
+- Shift Left
+- MVP => Minimum Viable Product
+- ALM => Application Lifecycle Management
+- Environment Types
+  - On-Premise (Data Centres)
+  - Private Cloud
+  - Public Cloud
+
+- Agile
+  - Feedback loops (iterations)
+  - Sprints
+  - Focuses on Small incremental changes (MVP)
+- Deployment Without Downtime
+- Deployment Strategies
+  - Blue/Green
+  - Rolling Updates
+  - Canary Deployment
+
+- Infrastructure-as-Code
+- Compliance-as-Code
+- Security-as-Code
+
+Hashicorp => Terraform, Vagrant, Packer, Consul
+
+
+**************************
+
+20% => Tools and technology
+80% => Culture
+
+**************************
+
+- SDLC
+  - Waterfall Model
+        - Longer TAT
+        - Errors are discovered late
+        - Lesser productivity
+        - Can't go back
+        - Very late engagement with End Users
+        - Less flexible
+
+  - Agile
+    - Scrum
+    - Xtreame programming
+    - Kanban
+
+**************************
+
+Agile Feedback Loop:
+Dev=>testing
+
+DevOps Feedback Loop:
+Dev=>test=>deploy=>maintain=>Monitor
+
+**************************
+
+
+
++++++++++++++++++++++
+DevOps Introduction
++++++++++++++++++++++
+
+- Dev+Ops Collaboration
+- Docker
+- Hybrid Cloud
+- Containers-as-a-service
+- Agile
+
+Tools   => 20%
+Culture => 80%
+
+
++++++++++++++++++++++
+DevOps ToolChain
++++++++++++++++++++++
+
+SCM / VCS => Git, SVN , Accurev, TFS
+Continuous Integration / Continuous Delivery => Jenkins, Travis CI, Bamboo, CodeShip
+Configuration Management => Puppet, Chef, Ansible
+Containers => Docker, rkt
+Container Orchestration => Docker Swarm, Kubernetes
+Monitoring => Nagios, DataDog, Splunk, ELK stack, Prometuous
+
+
++++++++++++++++++++++
+SCM / VCS
++++++++++++++++++++++
+
+- Centralized => SVN, Accurev, TFS, Perforce
+- Distributed => Git, Mercurial
+
+- Git => GitHub, GitLab, BitBucket, AWS CodeCommit, Azure TFS, (Flavours of Git)
+
+Git, SVN, Accurev
+
+Kubernetes => EKS, AKS, OpenShift, GKE, Mesosphere
+
+Linux => Redhat, Ubuntu, Debian (different Flavours)
+
+License => MIT, Apache 2.0
+
++++++++++++++++++++++
+Terminologies
++++++++++++++++++++++
+
+- Waterfall
+- Agile Feedback Loop
+- DevOps Feedback Loop
+- MVP (Minimum Viable Product)
+- DevOps
+
+
+Dev => test => Pre-prod (staging) => Prod
+
+Deployment day:
+  - Intense
+  - Happening
+
+"DevOps intends to make Deployments boring"
+
+
+
+Pokemon (k8s)  => Borg (Google)
+
+*****************
+AAA of Security
+*****************
+
+A => Authentication
+    (MFA => Multi-Factor Authentication)
+    - What you know => Credentials
+    - What you have => RSA/SoftToken/OTP
+    - What you are  => Biometric
+
+A => Authorization
+A => Accounting / Auditing / Logging
+
+
++++++++++++++++++++++
+Configuration Management
++++++++++++++++++++++
+
+Keywords:
+
+- Configuration Management
+- Configuration Drift
+- Idempotence (Idempotence token)
+- Self-Healing
+- DSC => Desired State Configuration (What / How)
+- DSL => Domain Specific Language
+    - Puppet DSL
+    - Chef DSL
+    - Ansible DSL
+- Infrastructure-as-Code (Terraform / AWS Cloudformation/ Azure ARM)
+    - JSON or YAML
+- Immutable Infrastructure (Pet vs Cattle)
+- Imperative (scripting and coding) vs Declarative (Configuration Management scripts/Dockerfile/k8s)
+
+********************
+CM script examples (Also known as Policy Documents)
+********************
+
+
+package 'httpd' do
+  action :install
+end
+
+service 'httpd' do
+  action :start
+  action :enable
+  subscribe [file]
+end
+
+file '/var/www/html/index.html' do
+  action :create
+  notify [service]
+end
+
+
+
+package { 'git':
+ ensure => present,
+}
+
+apt:
+  - ensure: present
+
+
+CM vs Automation scripts (shell/perl/vbsript/powershell)
+
+- Provisioning scripts
+
+
+
+- Standard / Golden Template => Virtual Machines
+
+
+
+Puppet => 2012
+Chef => 2014
+Ansible => 2015 (2016 acquired by RedHat)
+
+**********************
+Chef Resources:
+https://manage.chef.io/login
+Chef official Tutorials: https://learn.chef.io
+Infrastructure Automation Track: https://learn.chef.io/tracks/infrastructure-automation#/
+**********************
+
+Agent Based => Chef and Puppet
+Agent Less  => Ansible
+
+**********************
+
+
++++++++++++++++++++++
+Containers
++++++++++++++++++++++
+
+Containers vs Virtual Machines
+
+Hypervisors => VMware ESXi, RedHat KVM, MS Hyper-v
+
+Type1 => MS Hyper-v, KVM, VMware ESXi
+Type2 => Virtual Box, VMware Workstation, Hyper-v,
+
+
+VMs         => Hardware level Virtualization
+Containers  => Operating System Level Virtualization
+
+
+API Developers
+API Consumers (DevOps Engineers)
+
+Exposed / Consumed
+
+Supported by most of the languages
+
+
+Dockerfile => Docker Image => Docker Containers
+
+
+Orchestration
+  - k8s (OpenSource)
+  - Swarm (Docker)
+  - Mesopshere (Apache)
+  - OpenShift (RedHat)
+  - EKS (AWS)
+  - AKS (Azure)
+  - GKE (Google)
+
+
+=========================
+DevOps Industry Experts:
+=========================
+
+- Patrick Debois
+- Martin Fowler
+- Jene Kim (Author of "The Phoenix Project" and "The DevOps Handbook")
+- Mark Hornbeek
+- Jez Humble
+
+=========================
+Companies/Blogs to follow
+=========================
+Following company blogs and DevOps documentation should be very helpful and informative:
+- Amazon
+- Google
+- Netflix
+- Rackspace
+- etsy
+- intuit
+- Azure DevOps
+- AWS DevOps
+
+
+=========================
+References
+=========================
+
+Linux Refresher:
+https://linuxjourney.com/
+
+Cloud:
+https://www.bmc.com/blogs/saas-vs-paas-vs-iaas-whats-the-difference-and-how-to-choose/
+
+
+DevOps:
+https://devopsinstitute.com/
+https://devops-research.com/
+https://xebialabs.com/periodic-table-of-devops-tools/
+https://aws.amazon.com/devops
+
+
+AWS DevOps Whitepapers:
+https://d1.awsstatic.com/whitepapers/AWS_DevOps.pdf
+https://d1.awsstatic.com/whitepapers/DevOps/practicing-continuous-integration-continuous-delivery-on-AWS.pdf
+
+
+Git:
+https://git-scm.com/book/en/v2
+https://www.atlassian.com/git/tutorials/what-is-version-control
+https://www.atlassian.com/git/tutorials/merging-vs-rebasing
+https://git-scm.com/book/en/v2/Git-Branching-Rebasing
+
+
+Jenkins and Continuous Integration:
+https://dev.to/bugfenderapp/what-is-jenkins-and-why-should-you-be-using-it-2pe
+https://www.youtube.com/watch?v=xSv_m3KhUO8
+https://www.youtube.com/watch?v=yse_OrdueKk
+https://www.cloudbees.com/jenkins/jenkins-certification
+
+*** Pipeline as Code is one of the more common practices now-a-days and following is the official documentation for it (well, sort of :))
+https://jenkins.io/doc/pipeline/tour/hello-world/
+
+
+Puppet:
+https://docs.puppet.com/
+https://www.puppetcookbook.com/
+https://www.edureka.co/blog/what-is-puppet/
+https://www.edureka.co/blog/chef-vs-puppet-vs-ansible-vs-saltstack/
+http://fullstack-puppet-docs.readthedocs.io/en/latest/puppet_manifests.html
+http://www.bogotobogo.com/DevOps/Puppet/puppet_basics_of_code_terminology.php
+
+
+Ansible:
+https://www.ansible.com/blog/topic/getting-started
+https://serversforhackers.com/c/an-ansible2-tutorial
+https://www.softwaretestinghelp.com/ansible-tutorial-1/
+https://www.ansible.com/blog/getting-started-writing-your-first-playbook
+
+Docker:
+https://medium.com/the-andela-way/docker-for-beginners-61e8e0ce6a19
+https://rominirani.com/docker-tutorial-series-a7e6ff90a023
+https://docker-curriculum.com/
+https://labs.play-with-docker.com/
+
+Kubernetes:
+https://kubernetes.io/docs/concepts/
+https://www.ibm.com/cloud/container-service
+https://eksworkshop.com/
+
+
+
+
+
+.
